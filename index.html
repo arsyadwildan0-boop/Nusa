@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>E-Library | Perpustakaan Modern</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;800&family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+</head>
+<body>
+
+    <header>
+        <div class="container navbar">
+            <div class="logo">
+                <span class="gold-text">Galeri</span>NusaBooks
+            </div>
+            <nav>
+                <ul>
+                    <li><a href="#home" class="active">Beranda</a></li>
+                    <li><a href="#koleksi">Koleksi</a></li>
+                    <li><a href="#tentang">Tentang</a></li>
+                    <li><a href="#kontak">Kontak</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <section id="home" class="hero">
+        <div class="hero-content">
+            <h1>Selamat Datang <span class="gold-text">Di Galeri NusaBooks</span></h1>
+            <p>Satu halaman yang Anda baca hari ini dapat menjadi langkah awal menuju masa depan yang lebih baik. Jangan hanya mengejar nilai, kejarlah ilmu yang akan menemani sepanjang hidup. Mari jelajahi dunia ilmu bersama Galeri NusaBooks.</p>
+            <a href="#koleksi" class="btn-primary">Jelajahi Buku</a>
+        </div>
+    </section>
+
+    <section id="koleksi" class="books-section container">
+        <div class="section-title">
+            <h2>Koleksi <span class="gold-text">Buku Kami</span></h2>
+            <div class="gold-line"></div>
+        </div>
+
+        <div class="filter-container">
+            <input type="text" id="search-input" placeholder="Cari judul buku atau penulis...">
+            <div class="filter-buttons">
+                <button class="filter-btn active" data-category="all">Semua</button>
+                <button class="filter-btn" data-category="agama">Agama</button>
+                <button class="filter-btn" data-category="fiksi">Fiksi</button>
+                <button class="filter-btn" data-category="sains">Sains</button>
+                <button class="filter-btn" data-category="sejarah">Sejarah</button>
+            </div>
+        </div>
+
+        <!-- FIX: Sekarang seluruh 4 kartu buku berada di dalam satu container grid yang sama -->
+        <div class="books-grid" id="books-grid">
+
+            <!-- Buku 1: Agama -->
+            <div class="book-card" data-category="agama" onclick="openBookModal(1, 'Hadits Berpikir Positif & Sabar', 'Wildan Arsyad')" style="cursor: pointer;">
+                <div class="media-container">
+                    <div class="book-cover active-media" style="font-size: 18px; padding: 15px; text-align: center;">
+                        Hadits Berpikir Positif & Sabar
+                    </div>
+                </div>
+                <div class="book-info">
+                    <span class="book-tag">Agama</span>
+                    <h3>Hadits Berpikir Positif & Sabar</h3>
+                    <p class="author">Wildan Arsyad (STAI Al-Falah)</p>
+                    <p style="font-size: 12px; color: #d4af37; margin-top: 8px; font-weight: bold;">⚡ Klik untuk Baca & Tonton</p>
+                </div>
+            </div>
+
+            <!-- Buku 2: Sains -->
+            <div class="book-card" data-category="sains" onclick="openBookModal(2, 'Cosmos', 'Carl Sagan')" style="cursor: pointer;">
+                <div class="media-container">
+                    <div class="book-cover active-media" style="font-size: 18px; padding: 15px; text-align: center;">
+                        Cosmos
+                    </div>
+                </div>
+                <div class="book-info">
+                    <span class="book-tag">Sains</span>
+                    <h3>Cosmos</h3>
+                    <p class="author">Carl Sagan</p>
+                    <p style="font-size: 12px; color: #d4af37; margin-top: 8px; font-weight: bold;">⚡ Klik untuk Baca & Tonton</p>
+                </div>
+            </div>
+
+            <!-- Buku 3: Sejarah -->
+            <div class="book-card" data-category="sejarah" onclick="openBookModal(3, 'Sapiens', 'Yuval Noah Harari')" style="cursor: pointer;">
+                <div class="media-container">
+                    <div class="book-cover active-media" style="font-size: 18px; padding: 15px; text-align: center;">
+                        Sapiens
+                    </div>
+                </div>
+                <div class="book-info">
+                    <span class="book-tag">Sejarah</span>
+                    <h3>Sapiens</h3>
+                    <p class="author">Yuval Noah Harari</p>
+                    <p style="font-size: 12px; color: #d4af37; margin-top: 8px; font-weight: bold;">⚡ Klik untuk Baca & Tonton</p>
+                </div>
+            </div>
+
+            <!-- Buku 4: Fiksi -->
+            <div class="book-card" data-category="fiksi" onclick="openBookModal(4, 'Bumi Manusia', 'Pramoedya Ananta Toer')" style="cursor: pointer;">
+                <div class="media-container">
+                    <div class="book-cover active-media" style="font-size: 18px; padding: 15px; text-align: center;">
+                        Bumi Manusia
+                    </div>
+                </div>
+                <div class="book-info">
+                    <span class="book-tag">Fiksi</span>
+                    <h3>Bumi Manusia</h3>
+                    <p class="author">Pramoedya Ananta Toer</p>
+                    <p style="font-size: 12px; color: #d4af37; margin-top: 8px; font-weight: bold;">⚡ Klik untuk Baca & Tonton</p>
+                </div>
+            </div>
+
+        </div> <!-- Tag penutup books-grid yang benar di sini -->
+    </section>
+
+    <!-- Modal Multimedia -->
+    <div id="multimedia-modal" class="modal-overlay">
+        <div class="modal-content">
+            <span class="close-modal" onclick="closeBookModal()">&times;</span>
+            <h2 id="modal-book-title">Judul Buku</h2>
+            <p id="modal-book-author" class="author">Penulis</p>
+            
+            <div class="media-tabs">
+                <button class="tab-btn active" id="tab-word" onclick="switchModalTab('word')">📖 Jurnal (Word/PDF)</button>
+                <button class="tab-btn" id="tab-ppt" onclick="switchModalTab('ppt')">📄 Presentasi (PPT/PDF)</button>
+                <button class="tab-btn" id="tab-video" onclick="switchModalTab('video')">🎥 Video Singkat</button>
+            </div>
+
+            <div class="viewer-container">
+                <iframe id="pdf-viewer-word" class="doc-viewer active-viewer" src="" frameborder="0"></iframe>
+                <iframe id="pdf-viewer-ppt" class="doc-viewer" src="" frameborder="0"></iframe>
+                <iframe id="video-viewer" class="doc-viewer" src="" frameborder="0" style="width: 100%; height: 400px; background: #000; display: none;"></iframe>
+            </div>
+        </div>
+    </div>
+
+    <!-- Section Game Edukasi (FIXED dari teks bocor) -->
+    <div style="text-align: center; margin: 40px 0 20px 0; padding: 20px; border-top: 2px dashed #cbd5e1;">
+        <h3 style="color: #2d3748; margin-bottom: 10px;">Ingin Uji Pemahamanmu dengan Cara Seru?</h3>
+        <p style="color: #718096; margin-bottom: 20px;">Mainkan game petualangan melewati rintangan emosi dan jawab kuis edukasinya!</p>
+        
+        <a href="game/game.html" style="
+            display: inline-block;
+            padding: 14px 28px;
+            background-color: #e53e3e;
+            color: white;
+            text-decoration: none;
+            border-radius: 30px;
+            font-weight: bold;
+            font-size: 16px;
+            box-shadow: 0 4px 10px rgba(229, 62, 62, 0.4);
+            transition: 0.3s;
+        " onmouseover="this.style.backgroundColor='#c53030'; this.style.transform='scale(1.05)'" onmouseout="this.style.backgroundColor='#e53e3e'; this.style.transform='scale(1)'">
+            🎮 Main Game Edukasi (Sabar & Berpikir Positif)
+        </a>
+    </div>
+
+    <footer>
+        <p>&copy; 2026 <span class="gold-text">RuangBuku</span>. Hak Cipta Dilindungi Undang-Undang.</p>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>

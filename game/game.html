@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Petualangan Sabar & Berpikir Positif - Pro</title>
+    <link rel="stylesheet" href="game.css">
+</head>
+<body>
+
+    <div class="game-container">
+        <h2>Petualangan Sabar & Berpikir Positif</h2>
+        <p>Gunakan tombol <b>Panah Kanan / Kiri</b> untuk berjalan, dan <b>Panah Atas / Spasi</b> untuk melompat!</p>
+        
+        <div class="canvas-wrapper">
+            <canvas id="gameCanvas" width="800" height="400"></canvas>
+            
+            <div id="gameOverlay" class="overlay">
+                <div class="overlay-content animate-pop">
+                    <h1 id="overlayTitle">GAME OVER</h1>
+                    <p id="overlayMessage">Awan Putus Asa menyelimuti hatimu!</p>
+                    <div class="overlay-buttons">
+                        <button id="quizBtn" class="btn-primary" onclick="showQuizFromOverlay()">📝 Ambil Kuis (Bangkit)</button>
+                        <button id="actionBtn" class="btn-secondary" onclick="resetGame()">🔄 Mulai Ulang</button>
+                    </div>
+                </div>
+            </div>
+
+            <div id="quizModal" class="overlay" style="display: none;">
+                <div class="overlay-content animate-pop">
+                    <h3>🔴 Ujian Hidup: Jangan Menyerah!</h3>
+                    <p id="quizQuestion">Pertanyaan kuis akan muncul di sini...</p>
+                    <div class="quiz-options">
+                        <button onclick="checkAnswer(0)" id="opt0">Pilihan A</button>
+                        <button onclick="checkAnswer(1)" id="opt1">Pilihan B</button>
+                        <button onclick="checkAnswer(2)" id="opt2">Pilihan C</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <br>
+        <a href="../index.html" class="back-btn">⬅ Kembali ke Perpustakaan</a>
+    </div>
+
+    <script src="game.js"></script>
+</body>
+</html>
